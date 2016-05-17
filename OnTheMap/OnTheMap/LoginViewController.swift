@@ -26,73 +26,44 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func loginButtonPressed(sender: AnyObject) {
+        createSession()
         print("Login Button Pressed")
+    }
+    
+    private func createSession(){
         
-        func getSessionID(){
-            // 1. Set the parameters
-            let methodParameters: [String: String!] = [
-                Constants.user.Username: userIDTextField.text,
-                Constants.user.password: passwordTextField.text
-            ]
-            print("method parameters set")
+        let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/session")!)
+        request.HTTPMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.HTTPBody = "{\"udacity\" : {\"username\" : \"\(self.userIDTextField.text!)\", \"password\" : \"\(self.passwordTextField.text!)\"}}".dataUsingEncoding(NSUTF8StringEncoding)
+        
+        let session = NSURLSession.sharedSession()
+        
+        let task = appDelegate.sharedSession.dataTaskWithRequest(request) { (data, response, error) in
+        
+            if error != nil {
+                print("Error in task")
+                return
+            }
+            let newData = data!.subdataWithRange(NSMakeRange(5, data!.length - 5))
             
-            
-            // 2/3. Build the URL, Configure the request
-            let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/session")!)
-            
-            // 4. Make the request
-            let task = appDelegate.sharedSession.dataTaskWithRequest(request) { (data, response, error) in
-                
-                // error
-                func displayError(error: String, debugLabelText: String? = nil) {
-                    print(error)
-                    performUIUpdatesOnMain {
-                        self.debugLabelText.text = "Login Failed (Login Step)"
-                    }
-                }
-                
-                // GUARD
-                guard (error == nil) else {
-                    displayError("There was an error with your request: \(error)")
-                    return
-                }
-                
-                guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
-                    displayError("Your request returned a status code other than 2xx!")
-                    return
-                }
-                
-                guard let data = data else {
-                    displayError("No data was returned by the request")
-                    return
-                }
-                
-                // 5. Parse the data
-                let parsedResult: AnyObject!
-                do {
-                    parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
-                } catch {
-                    displayError("Could not parse the data as JSON: '\(data)'")
-                    return
-                }
-                
-                guard let sessionID = parsedResult[Constants.sessionResponseKeys.id] as? String else {
-                    displayError("Cannod find key '\(Constants.sessionResponseKeys.id)' in \(parsedResult)")
-                    return
-                }
-                
-                
-                // 6. Use the data
-                self.appDelegate.sessionID = sessionID
-                print (sessionID)
+            let parsedResult: AnyObject!
+            do {
+                parsedResult = try NSJSONSerialization.JSONObjectWithData(newData, options: .AllowFragments) as? NSDictionary
+            } catch {
+                print("Error")
+                return
                 
             }
-            // 7. Start the request
-            task.resume()
+            print (parsedResult)
             
         }
+        // 7. Start the request
+        task.resume()
         
-
     }
+
+
     }
 

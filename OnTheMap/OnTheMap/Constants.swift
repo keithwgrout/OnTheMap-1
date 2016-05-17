@@ -10,23 +10,17 @@ import UIKit
 
 struct Constants {
     
-    struct udacity {
-        static let ApiScheme = "https"
-        static let ApiHost = "www.udacity.com"
-        static let ApiPath = "/api/session"
-    }
-    
     struct user {
-        static let Username = "username"
+        static let username = "username"
         static let password = "password"
     }
     
-    struct accountResponseKeys {
+    struct account {
         static let registered = "registered"
         static let key = "key"
     }
     
-    struct sessionResponseKeys {
+    struct session {
         static let id = "id"
         static let expiration = "expiration"
     }
