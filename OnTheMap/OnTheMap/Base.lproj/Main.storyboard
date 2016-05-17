@@ -77,34 +77,5 @@
             </objects>
             <point key="canvasLocation" x="245" y="326"/>
         </scene>
-        <!--Map View Controller-->
-        <scene sceneID="1zf-8w-4qe">
-            <objects>
-                <viewController storyboardIdentifier="MapViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zZu-Bn-fga" userLabel="Map View Controller" customClass="MapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="W66-WC-Jlg"/>
-                        <viewControllerLayoutGuide type="bottom" id="06w-DY-lYP"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="crv-0r-0ld">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2by-A8-par">
-                                <rect key="frame" x="20" y="28" width="560" height="552"/>
-                            </mapView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="06w-DY-lYP" firstAttribute="top" secondItem="2by-A8-par" secondAttribute="bottom" constant="20" id="P9e-dw-xbg"/>
-                            <constraint firstItem="2by-A8-par" firstAttribute="top" secondItem="W66-WC-Jlg" secondAttribute="bottom" constant="8" id="Vgp-wI-rDl"/>
-                            <constraint firstItem="2by-A8-par" firstAttribute="leading" secondItem="crv-0r-0ld" secondAttribute="leadingMargin" id="rJ6-t0-m7b"/>
-                            <constraint firstItem="2by-A8-par" firstAttribute="trailing" secondItem="crv-0r-0ld" secondAttribute="trailingMargin" id="xce-3C-4j4"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CsK-FX-A9v" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="934" y="328"/>
-        </scene>
     </scenes>
 </document>

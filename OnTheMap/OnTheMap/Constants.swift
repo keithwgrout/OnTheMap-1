@@ -10,9 +10,9 @@ import UIKit
 
 struct Constants {
     
-    struct user {
-        static let username = "username"
-        static let password = "password"
+    struct keys {
+        static let account = "account"
+        static let session = "session"
     }
     
     struct account {
