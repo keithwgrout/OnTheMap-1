@@ -16,6 +16,7 @@
 		9319FBCC1CE64575002FF945 /* OnTheMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9319FBCB1CE64575002FF945 /* OnTheMapUITests.swift */; };
 		9319FBDB1CE64979002FF945 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9319FBDA1CE64979002FF945 /* Constants.swift */; };
 		9319FBDD1CEA2F0F002FF945 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9319FBDC1CEA2F0F002FF945 /* GCDBlackBox.swift */; };
+		93F8CED71CF3F38F0059AD95 /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93F8CED61CF3F38F0059AD95 /* UdacityClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		9319FBCD1CE64575002FF945 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9319FBDA1CE64979002FF945 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		9319FBDC1CEA2F0F002FF945 /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
+		93F8CED61CF3F38F0059AD95 /* UdacityClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				9319FBB71CE64575002FF945 /* Info.plist */,
 				9319FBDA1CE64979002FF945 /* Constants.swift */,
 				9319FBDC1CEA2F0F002FF945 /* GCDBlackBox.swift */,
+				93F8CED61CF3F38F0059AD95 /* UdacityClient.swift */,
 			);
 			path = OnTheMap;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93F8CED71CF3F38F0059AD95 /* UdacityClient.swift in Sources */,
 				9319FBDD1CEA2F0F002FF945 /* GCDBlackBox.swift in Sources */,
 				9319FBAE1CE64575002FF945 /* LoginViewController.swift in Sources */,
 				9319FBAC1CE64575002FF945 /* AppDelegate.swift in Sources */,
