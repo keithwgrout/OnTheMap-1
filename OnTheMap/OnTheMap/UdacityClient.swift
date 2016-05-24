@@ -11,14 +11,14 @@ import UIKit
 class UdacityClient: NSObject {
     var appDelegate: AppDelegate!
     
-    func login(){
+    /*func login(){
         
         print ("Login Button Pressed")
         let request = NSMutableURLRequest(URL: NSURL(string: "https://www.udacity.com/api/session")!)
         request.HTTPMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.HTTPBody = "{\"udacity\" : {\"username\" : \"\(appDelegate.userID)\", \"password\" : \"\(appDelegate.password)\"}}".dataUsingEncoding(NSUTF8StringEncoding)
+        request.HTTPBody = "{\"udacity\" : {\"username\" : \"\(appDelegate.loginView.userIDTextField.text!)\", \"password\" : \"\(appDelegate.loginView.passwordTextField.text!)\"}}".dataUsingEncoding(NSUTF8StringEncoding)
         
         let task = appDelegate.sharedSession.dataTaskWithRequest(request, completionHandler: {(data, response, error) in
             
@@ -26,7 +26,7 @@ class UdacityClient: NSObject {
             func displayError(error: String, debugLabelText: String? = nil) {
                 print (error)
                 performUIUpdatesOnMain {
-                    self.appDelegate.debugLabel = "Login Failed"
+                    self.appDelegate.loginView.debugLabelText.text = "Login Failed"
                 }
             }
             
@@ -63,7 +63,6 @@ class UdacityClient: NSObject {
                     return
                 }
                 print (sessionID)
-                // Save the returned session ID to AppDelegate
                 
             }
         })
@@ -71,4 +70,5 @@ class UdacityClient: NSObject {
         // 7. Start the request
         task.resume()
     }
-}
+*/
+    }

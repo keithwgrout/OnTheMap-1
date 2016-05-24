@@ -13,14 +13,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    var userID: String! = nil
+    var password: String! = nil
     var udacityClient: UdacityClient!
     var loginView: LoginViewController!
     var constants: Constants!
     
     var sharedSession = NSURLSession.sharedSession()
-    var userID: String? = nil
-    var password: String? = nil
-    var debugLabel: String? = nil
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
