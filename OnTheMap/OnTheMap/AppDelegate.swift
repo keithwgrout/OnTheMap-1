@@ -12,11 +12,12 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var udacityClient: UdacityClient!
+    var loginView: LoginViewController!
+    var constants: Constants!
+    
+    
     var sharedSession = NSURLSession.sharedSession()
-    var requestToken: String? = nil
-    var userID: String? = nil
-    var sessionID: String? = nil
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
