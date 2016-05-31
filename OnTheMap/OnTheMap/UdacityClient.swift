@@ -6,6 +6,7 @@
 //  Copyright © 2016 Aaron Phillips. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 class UdacityClient: NSObject {
@@ -48,6 +49,8 @@ class UdacityClient: NSObject {
                     return
                 }
                 print (sessionID)
+                
+                
             }
         }
         task.resume()

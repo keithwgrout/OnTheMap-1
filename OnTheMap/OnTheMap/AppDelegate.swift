@@ -14,8 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var udacityClient: UdacityClient!
     var loginView: LoginViewController!
-    var constants: Constants!
-    
     
     var sharedSession = NSURLSession.sharedSession()
 

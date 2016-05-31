@@ -2,7 +2,7 @@
 //  Constants.swift
 //  OnTheMap
 //
-//  Created by Aaron Phillips on 5/13/16.
+//  Created by Aaron Phillips on 5/31/16.
 //  Copyright © 2016 Aaron Phillips. All rights reserved.
 //
 
@@ -25,5 +25,3 @@ struct Constants {
         static let expiration = "expiration"
     }
 }
-
-
