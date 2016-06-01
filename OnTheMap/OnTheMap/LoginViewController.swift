@@ -33,8 +33,66 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func loginButtonPressed(sender: AnyObject) {
-        udacityClient?.login(userIDTextField.text!, password: passwordTextField.text!)
+        login()
     }
+    
+    func login(){
+        self.loginButton.enabled = false
+        if let udacityClient = udacityClient {
+            udacityClient.udacityLogin(userIDTextField.text!, password: passwordTextField.text!){
+                data, error in
+                if data != nil{
+                    if let _ = self.appDelegate{
+                        if self.appDelegate != nil{
+                            self.appDelegate?.currentStudent = Student(dictionary: data)
+                            self.getPublicData()
+                        }else{
+                            self.displayError("ERROR: Login Failed 1")}
+                    }else{
+                        self.displayError("ERROR: Login Failed 2")}
+                }else{
+                    self.displayError("ERROR: Login Failed 3")}
+            }
+        }else{
+            self.displayError("ERROR: Login Failed 4")
+        }
+    }
+    
+    func getPublicData(){
+        if let appDelegate = appDelegate{
+            if let key = appDelegate.currentStudent?.uniqueKey{
+                udacityClient?.getStudentData(key){
+                    data, error in
+                    if let data = data{
+                        dispatch_async(dispatch_get_main_queue()){
+                            self.appDelegate!.currentStudent!.firstName = data["firstName"] as? String
+                            self.appDelegate!.currentStudent!.lastName = data["lastName"] as? String
+                            self.loginButton.enabled = true
+                            self.goToMap()
+                    }
+                }else{
+                    self.displayError("ERROR")}
+            }
+        }else{
+            self.displayError("ERROR")}
+    }else{
+        self.displayError("ERROR")}
+    }
+    
+    func goToMap(){
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let tabController = storyboard.instantiateViewControllerWithIdentifier("TabView") as? UITabBarController
+        if let tabController = tabController{
+            presentViewController(tabController, animated: true, completion: nil)
+        }
+    }
+    
+    func displayError(errorMessage: String) {
+        dispatch_async(dispatch_get_main_queue()){
+            self.loginButton.enabled = true
+            self.debugLabelText.text = errorMessage
+            }
+        }
     
     // Subscribe to keyboard notifications
     func subscribeToKeyboardNotifications() {

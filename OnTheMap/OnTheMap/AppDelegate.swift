@@ -14,6 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var udacityClient: UdacityClient!
     var loginView: LoginViewController!
+    var currentStudent: Student?
+    var students: [Student]?
+    var onTheMap: Bool?
     
     var sharedSession = NSURLSession.sharedSession()
 
